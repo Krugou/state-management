@@ -30,9 +30,7 @@ app.post('/login', (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  res.render('home');
-});
+
 
 app.get('/form', (req, res) => {
   res.render('form');
