@@ -18,6 +18,7 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
+  console.log('yhdistetty')
   res.render('home');
 });
 app.post('/login', (req, res) => {
