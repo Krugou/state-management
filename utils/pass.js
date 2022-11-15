@@ -55,12 +55,22 @@ passport.deserializeUser(async (id, done) => {
 passport.use(
   new Strategy((username, password, done) => {
     // get user by username from getUserLogin
+    const user = getUserLogin(username);
     // if user is undefined
-    // return done(null, false);
+    if (!user) {
+      // return done(null, false);
+      return done(null, false);
+    }
+
     // if passwords dont match
-    // return done(null, false);
+    if (user.password !== password) {
+      // return done(null, false);
+      return done(null, false);
+    }
+
     // if all is ok
-    // return done(null, user.user_id);
+
+    return done(null, user.user_id);
   })
 );
 
