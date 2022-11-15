@@ -44,6 +44,10 @@ app.get('/secret', (req, res) => {
     res.redirect('/form');
   }
 });
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 app.get('/setCookie/:clr', (req, res) => {
   console.log(req.params.clr);
