@@ -43,13 +43,16 @@ const getUserLogin = (email) => {
 passport.serializeUser((id, done) => {
   console.log('serialize', id);
   // serialize user id by adding it to 'done()' callback
+    done(null, id);
 });
 
 // deserialize: get user id from session and get all user data
 passport.deserializeUser(async (id, done) => {
   // get user data by id from getUser
+    const user = getUser(id);
   console.log('deserialize', user);
   // deserialize user by adding it to 'done()' callback
+    done(null, user);
 });
 
 passport.use(
